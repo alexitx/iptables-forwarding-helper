@@ -24,13 +24,13 @@ python ifh.py [-h] [-v] (-a <src address> | -f <src file>) -p <src port> -t <pro
 
 Placeholders in comments surrounded by `{}` will be replaced with the corresponding values
 
-| Placeholder  | Value                                            |
-|--------------|--------------------------------------------------|
-| src_address  | Source address with netmask for the current rule |
-| src_port     | Source port                                      |
-| protocol     | Protcol for the current rule                     |
-| dest_address | Destination address                              |
-| dest_port    | Destination port                                 |
+| Placeholder  | Value                                                   |
+|--------------|---------------------------------------------------------|
+| src_address  | Source address with netmask length for the current rule |
+| src_port     | Source port                                             |
+| protocol     | Protocol for the current rule                           |
+| dest_address | Destination address                                     |
+| dest_port    | Destination port                                        |
 
 ## License
 
