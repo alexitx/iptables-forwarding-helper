@@ -107,7 +107,7 @@ def _cli():
     src_group.add_argument(
         '-f',
         '--src-file',
-        help="Newline-separated list of source addresses from file (or '--src-address')",
+        help="Newline-separated list of source addresses from file or stdin (or '--src-address')",
         metavar='<src file>'
     )
     parser.add_argument(
@@ -167,8 +167,13 @@ def _cli():
 
 
     if args.src_address is not None:
+        # Comma-separated list
         src_addresses = args.src_address.split(',')
+    elif args.src_file == '-':
+        # Newline-separated from stdin
+        src_addresses = [line.strip() for line in sys.stdin.readlines()]
     else:
+        # Newline-separated from file
         try:
             with open(args.src_file, 'r', encoding='utf-8') as f:
                 src_addresses = [line.strip() for line in f.readlines()]

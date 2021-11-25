@@ -11,16 +11,16 @@ python ifh.py [-h] [-v] (-a <src address> | -f <src file>) -p <src port> -t <pro
 
 ## CLI Arguments
 
-| Argument             | Type | Value                           | Default              | Required                 | Description                                          |
-|----------------------|------|---------------------------------|----------------------|--------------------------|------------------------------------------------------|
-| -a, --src-address    | str  | IPv4 address with optional mask |                      | Yes (or `--src-file`)    | Comma-separated list of source addresses             |
-| -f, --src-file       | str  | filename                        |                      | Yes (or `--src-address`) | Newline-separated list of source addresses from file |
-| -p, --src-port       | int  | 1-65535                         |                      | Yes                      | Source port                                          |
-| -t, --protocol       | str  | `tcp`, `udp`                    |                      | Yes                      | Comma-separated list of protocols                    |
-| -A, --dest-address   | str  | IPv4 address                    |                      | Yes                      | Destination address                                  |
-| -P, --dest-port      | int  | 1-65535                         | Same as `--src-port` | No                       | Destination port                                     |
-| -c, --comment        | str  |                                 |                      | No                       | Comment in iptables command                          |
-| -k, --format-comment | bool |                                 |                      | No                       | Enable replacing placeholders in comment             |
+| Argument             | Type | Value                           | Default              | Required                 | Description                                                   |
+|----------------------|------|---------------------------------|----------------------|--------------------------|---------------------------------------------------------------|
+| -a, --src-address    | str  | IPv4 address with optional mask |                      | Yes (or `--src-file`)    | Comma-separated list of source addresses                      |
+| -f, --src-file       | str  | filename or `-` for stdin       |                      | Yes (or `--src-address`) | Newline-separated list of source addresses from file or stdin |
+| -p, --src-port       | int  | 1-65535                         |                      | Yes                      | Source port                                                   |
+| -t, --protocol       | str  | `tcp`, `udp`                    |                      | Yes                      | Comma-separated list of protocols                             |
+| -A, --dest-address   | str  | IPv4 address                    |                      | Yes                      | Destination address                                           |
+| -P, --dest-port      | int  | 1-65535                         | Same as `--src-port` | No                       | Destination port                                              |
+| -c, --comment        | str  |                                 |                      | No                       | Comment in iptables command                                   |
+| -k, --format-comment | bool |                                 |                      | No                       | Enable replacing placeholders in comment                      |
 
 Placeholders in comments surrounded by `{}` will be replaced with the corresponding values
 
