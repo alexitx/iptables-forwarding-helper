@@ -100,41 +100,56 @@ def _cli():
     src_group = parser.add_mutually_exclusive_group(required=True)
     src_group.add_argument(
         '-a',
-        '--src-address'
+        '--src-address',
+        help="Comma-separated list of source addresses (or '--src-file')",
+        metavar='<src address>'
     )
     src_group.add_argument(
         '-f',
-        '--src-file'
+        '--src-file',
+        help="Newline-separated list of source addresses from file (or '--src-address')",
+        metavar='<src file>'
     )
     parser.add_argument(
         '-p',
         '--src-port',
         type=int,
-        required=True
+        required=True,
+        help='Source port',
+        metavar='<src port>'
     )
     parser.add_argument(
         '-t',
         '--protocol',
-        required=True
+        required=True,
+        help='Comma-separated list of protocols (values: tcp, udp)',
+        metavar='<protocol>'
     )
     parser.add_argument(
         '-A',
         '--dest-address',
-        required=True
+        required=True,
+        help='Destination address',
+        metavar='<dest address>'
     )
     parser.add_argument(
         '-P',
         '--dest-port',
-        type=int
+        type=int,
+        help="Destination port (optional; default: same as '--src-port')",
+        metavar='<dest port>'
     )
     parser.add_argument(
         '-c',
-        '--comment'
+        '--comment',
+        help='Comment in iptables command (optional)',
+        metavar='<comment>'
     )
     parser.add_argument(
         '-k',
         '--format-comment',
-        action='store_true'
+        action='store_true',
+        help='Enable replacing placeholders in comment (optional)'
     )
     args = parser.parse_args()
 
